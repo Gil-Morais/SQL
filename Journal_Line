@@ -1,0 +1,14 @@
+SELECT tl.entity AS entity_id
+, BUILTIN.DF(tl.entity) AS entity
+, tl.id
+, tl.linelastmodifieddate
+, tl.quantitybilled
+, tl.quantityshiprecv
+,debitforeignamount
+,creditforeignamount
+, tl.transaction AS transaction_id
+, BUILTIN.DF(tl.transaction) AS transaction_number
+
+    FROM transaction AS tr 
+        INNER JOIN transactionLine AS tl ON tr.id = tl.transaction 
+    WHERE abbrevtype = 'GENJRNL' AND nexus = 2
