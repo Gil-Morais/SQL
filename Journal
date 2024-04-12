@@ -1,0 +1,17 @@
+SELECT id
+, tranid
+, trandate
+, BUILTIN.DF(status) AS status
+, billingstatus
+, employee AS salesrep_id
+, BUILTIN.DF(employee) AS salesrep
+, custbody_opscontact AS opscontact_id
+, BUILTIN.DF(custbody_opscontact) AS opscontact
+, BUILTIN.DF(createdby) AS createdby
+, createddate
+, journaltype
+, abbrevtype
+, BUILTIN.DF(custbody_closetranreason) AS close_reason
+, custbody_transactionmemo AS memo
+    FROM transaction
+    WHERE abbrevtype = 'GENJRNL' AND nexus = 2
