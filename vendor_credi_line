@@ -24,4 +24,4 @@ SELECT tl.custcol_essy_pickup AS essy_pickup
 , tl.uniquekey
 FROM transaction AS tr 
     INNER JOIN transactionLine AS tl ON tr.id = tl.transaction 
-WHERE abbrevtype = 'VENINV'
+WHERE abbrevtype = 'INVCRED'
