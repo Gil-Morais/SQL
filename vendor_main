@@ -5,9 +5,6 @@ SELECT id
 , terms AS terms_id
 , BUILTIN.DF(terms) AS terms
 , createddate
-, custbody_pofollowupdate AS pofollowupdate
-, custbody_pofollowupnote AS pofollowupnote
-, BUILTIN.DF(custbody_posubstatus) AS posubstatus
 , custbody_stc_amount_after_discount AS stc_amount_after_discount
 , custbody_stc_tax_after_discount AS stc_tax_after_discount
 , custbody_stc_total_after_discount AS stc_total_after_discount
@@ -21,7 +18,6 @@ SELECT id
 , foreignamountpaid
 , foreignamountunpaid
 , foreigntotal
-, prev.previousdoc AS createdfrom_id
 , BUILTIN.DF(createdby) AS createdby
 , BUILTIN.DF(lastmodifiedby) AS lastmodifiedby
 , lastmodifieddate
@@ -30,5 +26,4 @@ SELECT id
 , billingstatus
 , abbrevtype
 FROM transaction 
-LEFT JOIN previousTransactionLink AS prev ON id = prev.nextdoc
 WHERE abbrevtype = 'INVCRED' 
