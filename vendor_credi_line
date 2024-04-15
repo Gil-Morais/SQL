@@ -1,10 +1,4 @@
-SELECT tl.custcol_essy_pickup AS essy_pickup
-, tl.custcol_initial_etd AS initial_etd
-, BUILTIN.DF(tl.custcol_postatus) AS postatus
-, tl.custcol_so_envio_directo AS so_envio_directo
-, tl.custcol_tracking AS tracking
-, tl.custcolso_cross_dock AS cross_dock
-, tl.documentnumber
+SELECT tl.documentnumber
 , tl.entity AS entity_id
 , BUILTIN.DF(tl.entity) AS entity
 , tl.estgrossprofit
