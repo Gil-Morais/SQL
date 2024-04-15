@@ -31,4 +31,4 @@ SELECT id
 , abbrevtype
 FROM transaction 
 LEFT JOIN previousTransactionLink AS prev ON id = prev.nextdoc
-WHERE abbrevtype = 'VENINV' 
+WHERE abbrevtype = 'INVCRED' 
