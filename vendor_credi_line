@@ -1,0 +1,27 @@
+SELECT tl.custcol_essy_pickup AS essy_pickup
+, tl.custcol_initial_etd AS initial_etd
+, BUILTIN.DF(tl.custcol_postatus) AS postatus
+, tl.custcol_so_envio_directo AS so_envio_directo
+, tl.custcol_tracking AS tracking
+, tl.custcolso_cross_dock AS cross_dock
+, tl.documentnumber
+, tl.entity AS entity_id
+, BUILTIN.DF(tl.entity) AS entity
+, tl.estgrossprofit
+, tl.id
+, tl.inventorylocation
+, tl.item
+, tl.itemtype
+, tl.linelastmodifieddate
+, tl.quantity
+, tl.rate
+, tl.rateamount
+, tl.foreignamount AS amount
+, BUILTIN.DF(tl.expenseaccount) AS expenseaccount
+, tl.netamount AS expense_netamount
+, tl.transaction AS transaction_id
+, tranid
+, tl.uniquekey
+FROM transaction AS tr 
+    INNER JOIN transactionLine AS tl ON tr.id = tl.transaction 
+WHERE abbrevtype = 'VENINV'
