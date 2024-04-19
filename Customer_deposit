@@ -1,1 +1,16 @@
-
+CUSTDEP
+SELECT id
+, tranid
+, trandate
+, BUILTIN.DF(status) AS status
+, billingstatus
+, employee AS salesrep_id
+, BUILTIN.DF(employee) AS salesrep
+, custbody_opscontact AS opscontact_id
+, BUILTIN.DF(custbody_opscontact) AS opscontact
+, BUILTIN.DF(createdby) AS createdby
+, createddate
+, journaltype
+, abbrevtype
+    FROM transaction
+    WHERE abbrevtype = 'CUSTDEP' AND nexus = 2
